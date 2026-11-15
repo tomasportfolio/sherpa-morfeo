@@ -1,0 +1,46 @@
+name: Nuevo asset
+description: Pedí que se agregue una imagen, video o audio a la landing (sin tocar código)
+title: "[Asset] Nombre corto del asset"
+labels: ["asset"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Con este form alcanza: alguien con acceso agrega la tarjeta a la landing.
+        Recordatorio: el archivo tiene que estar en Google Drive compartido como **cualquiera con el link**.
+  - type: input
+    id: nombre
+    attributes:
+      label: Nombre del asset
+      description: Cómo va a figurar en la tarjeta.
+      placeholder: "Sherpa en la nieve"
+    validations:
+      required: true
+  - type: dropdown
+    id: tipo
+    attributes:
+      label: Tipo
+      options:
+        - Imagen (referencia)
+        - Video
+        - Audio
+        - Vista del personaje (front / back / side)
+        - Character sheet
+    validations:
+      required: true
+  - type: input
+    id: link
+    attributes:
+      label: Link de Google Drive
+      description: El link completo del archivo (vista o compartido).
+      placeholder: "https://drive.google.com/file/d/ID_ACA/view?usp=sharing"
+    validations:
+      required: true
+  - type: textarea
+    id: detalle
+    attributes:
+      label: Descripción y dónde va
+      description: Una línea con actitud para la tarjeta y en qué sección (Kit, Personaje, Referencias, Videos).
+      placeholder: "Sherpa haciendo un muñeco de nieve. Va en Referencias."
+    validations:
+      required: true
