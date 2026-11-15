@@ -83,6 +83,7 @@ h2{font-size:clamp(31px,4.6vw,58px)}
 .logo .gl{height:24px;width:auto;flex:none}
 .logo b{font-weight:800}
 .logo span{color:#aeb5c0;transform:translateY(.5px)}
+.logo .mlogo{height:.84em;width:auto;aspect-ratio:2197.94/375.75;vertical-align:-.12em}
 .nav ul{display:none;list-style:none;gap:26px;margin-left:auto;font-size:14.5px;font-weight:700;color:#d5dbe5}
 .nav ul a:hover{color:#fff}
 .nav .btn{margin-left:auto}
@@ -206,6 +207,15 @@ html.lb-abierto body{overflow:hidden}
   .lb-links{width:100%}
   .lb-links .btn{flex:1}
   .lb-tx h3{font-size:19px}
+}
+
+/* ───────── el elenco: los robots de las IA, Eco y Sherpa en su planeta (morfeolabs.com) ───────── */
+.cierre{padding:70px 0 0;text-align:center}
+.universo{height:250px;margin-top:20px}
+.universo canvas{width:100%;height:100%}
+@media (min-width:760px){
+  .cierre{padding-top:100px}
+  .universo{height:380px}
 }
 
 /* ───────── pie ───────── */
