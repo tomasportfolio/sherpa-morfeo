@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Sherpa · Morfeo Labs</title>
+<meta name="description" content="El kit descargable de Sherpa, el explorador de Morfeo Labs: character sheet en PNG y WebP, vistas frontal, trasera y de perfil, referencias y videos.">
+<meta name="theme-color" content="#03050a">
+<meta property="og:title" content="Sherpa · Morfeo Labs">
+<meta property="og:description" content="El kit descargable de Sherpa: character sheet, vistas, referencias y videos.">
+<meta property="og:image" content="assets/img/thumb-front.png">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/app.css">
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-flecha" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="i-baja" viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></symbol>
+  <symbol id="i-ampliar" viewBox="0 0 24 24"><path d="M9 4H4v5M15 4h5v5M9 20H4v-5M15 20h5v-5"/></symbol>
+  <symbol id="i-charla" viewBox="0 0 24 24"><path d="M4 6.5A2.5 2.5 0 016.5 4h11A2.5 2.5 0 0120 6.5v7a2.5 2.5 0 01-2.5 2.5H11l-4.5 4v-4A2.5 2.5 0 014 13.5z"/></symbol>
+  <symbol id="i-tv" viewBox="0 0 24 24"><rect x="3.5" y="7" width="17" height="12" rx="3"/><path d="M9.2 10.9v.6M14.8 10.9v.6M9.3 15.1c1.6 1.7 3.8 1.7 5.4 0"/></symbol>
+  <symbol id="i-gorro" viewBox="0 0 24 24"><path d="M5 13.5a7 7 0 0114 0v3M5 13.5v3M3.5 14h17M5.5 17.8h2.8M15.7 17.8h2.8"/></symbol>
+  <symbol id="i-campera" viewBox="0 0 24 24"><path d="M9 4l3 2.2L15 4c3 1.1 4.5 3.6 4.5 6.6V20h-15v-9.4C4.5 7.6 6 5.1 9 4z"/><path d="M12 6.2V20M8.2 9.2v5.6M15.8 9.2v5.6"/></symbol>
+  <symbol id="i-mochila" viewBox="0 0 24 24"><rect x="6.5" y="5.5" width="11" height="15" rx="3.5"/><path d="M6.5 11h11M9.5 5.5V4.5A2.5 2.5 0 0114.5 4.5v1M9.5 14.5h5"/></symbol>
+</svg>
+<canvas id="cielo" aria-hidden="true"></canvas>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Sherpa, Morfeo Labs, inicio">
+      <svg class="gl" viewBox="0 0 28 24" aria-hidden="true">
+        <path d="M3 9.2C3 5.4 7.9 2.6 14 2.6S25 5.4 25 9.2z" fill="#e6d3ae"/>
+        <rect x="3" y="8" width="22" height="14" rx="4.2" fill="#1fa8c9"/>
+        <rect x="6.2" y="11" width="15.6" height="8" rx="2.6" fill="#ffd60a"/>
+        <circle cx="10.6" cy="14.1" r="1.25" fill="#12161c"/>
+        <circle cx="17.4" cy="14.1" r="1.25" fill="#12161c"/>
+        <path d="M10.8 16.6c1.9 2 4.5 2 6.4 0" stroke="#12161c" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+      </svg>
+      <b>Sherpa</b><span>Morfeo Labs</span>
+    </a>
+    <ul>
+      <li><a href="#kit">Kit</a></li>
+      <li><a href="#personaje">Personaje</a></li>
+      <li><a href="#referencias">Referencias</a></li>
+      <li><a href="#videos">Videos</a></li>
+    </ul>
+    <a class="btn btn-p btn-sm" href="https://www.morfeolabs.com/" target="_blank" rel="noopener">morfeolabs.com</a>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ───────── PORTADA ───────── -->
+<section class="hero" id="hero">
+  <div class="wrap">
+    <h1 class="cap" data-paso="160"><span class="g">Hola,</span> <mark>soy Sherpa.</mark></h1>
+    <p class="lead rv">El explorador de Morfeo Labs: cabeza de TV, gorro de aviador y mochila para todo terreno. Acá está todo su kit para descargar.</p>
+    <div class="hero-cta rv">
+      <a class="btn btn-p" href="#kit">Descargá el kit <svg class="ic"><use href="#i-flecha"/></svg></a>
+      <a class="btn btn-g" href="#referencias">Ver referencias</a>
+    </div>
+    <div class="pastillas rv">
+      <span class="pas oro"><b>6</b><span>expresiones</span></span>
+      <span class="pas azul"><b>5</b><span>poses</span></span>
+      <span class="pas blanca"><b>7,5</b><span>cm de alto</span></span>
+    </div>
+    <figure class="retrato rv">
+      <span class="esq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <div class="foto">
+        <img src="assets/img/thumb-front.png" alt="Sherpa de frente: robot con cabeza de TV turquesa, carita amarilla feliz, gorro de aviador de borrego y campera inflable cian" width="1024" height="1024" fetchpriority="high">
+      </div>
+      <figcaption class="firma">Sherpa<small>Morfeo Labs</small></figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ───────── EL KIT: character sheet y vistas, con link a Drive ───────── -->
+<section class="sec" id="kit">
+  <div class="wrap">
+    <h2 class="cap" data-paso="120"><span class="g">Todo Sherpa,</span> <mark>listo para descargar.</mark></h2>
+    <p class="lead rv">El character sheet completo o las vistas por separado. Tocá una tarjeta para verla acá mismo, antes de bajarla.</p>
+
+    <a class="kit-feat rv lb" href="https://drive.google.com/file/d/19XKK4798ZfagYktsJ5V4saJY8rLxMS4v/view?usp=sharing" target="_blank" rel="noopener">
+      <span class="im"><img src="assets/img/thumb-sheet-png.png" alt="Character sheet de Sherpa: vistas frontal, 3/4, lateral y trasera, seis expresiones, cinco poses, detalles y escala" width="1200" height="800" loading="lazy"></span>
+      <span class="tx">
+        <span class="chip">PNG · 1200 × 800</span>
+        <h3>Character sheet completo</h3>
+        <p>Vistas de frente, costado y espalda, 6 expresiones, 5 poses, detalles y escala: todo el personaje en una imagen.</p>
+        <span class="kd-btn">Descargar PNG <svg class="ic"><use href="#i-baja"/></svg></span>
+      </span>
+    </a>
+
+    <div class="kit-grid">
+      <a class="kd rv ancho lb" href="https://drive.google.com/file/d/13rYb_HhnAyBig6jqicyVR67C87vTIc6Z/view?usp=drive_link" target="_blank" rel="noopener">
+        <span class="im"><span class="esq" aria-hidden="true"><i></i><i></i><i></i><i></i></span><img src="assets/img/thumb-sheet-webp.webp" alt="Character sheet de Sherpa en formato WebP" width="1200" height="800" loading="lazy"></span>
+        <span class="tx"><h3>Character sheet</h3><small>WebP · la misma ficha, más liviana</small><span class="kd-cta">Descargar <svg class="ic"><use href="#i-baja"/></svg></span></span>
+      </a>
+      <a class="kd rv lb" href="https://drive.google.com/file/d/1yvU8QG3dSMaLvb_vgcNwsq0wm8ieZb89/view?usp=drive_link" target="_blank" rel="noopener">
+        <span class="im"><span class="esq" aria-hidden="true"><i></i><i></i><i></i><i></i></span><img src="assets/img/thumb-front.png" alt="Sherpa de frente, con la carita feliz" width="1024" height="1024" loading="lazy"></span>
+        <span class="tx"><h3>Sherpa Front</h3><small>PNG · de frente, carita feliz</small><span class="kd-cta">Descargar <svg class="ic"><use href="#i-baja"/></svg></span></span>
+      </a>
+      <a class="kd rv lb" href="https://drive.google.com/file/d/1t7MoZJP4RS1xuO1RvxfHJSOcvbnmoLwd/view?usp=drive_link" target="_blank" rel="noopener">
+        <span class="im"><span class="esq" aria-hidden="true"><i></i><i></i><i></i><i></i></span><img src="assets/img/thumb-back.png" alt="Sherpa de espaldas, con la mochila mostaza y el gorro de borrego" width="1200" height="1200" loading="lazy"></span>
+        <span class="tx"><h3>Sherpa Back</h3><small>PNG · mochila y gorro a la vista</small><span class="kd-cta">Descargar <svg class="ic"><use href="#i-baja"/></svg></span></span>
+      </a>
+      <a class="kd rv lb" href="https://drive.google.com/file/d/18D4c34lZ3MjMoYzUryIPM2SwlmI4tQn0/view?usp=drive_link" target="_blank" rel="noopener">
+        <span class="im"><span class="esq" aria-hidden="true"><i></i><i></i><i></i><i></i></span><img src="assets/img/thumb-side.png" alt="Sherpa de perfil, con la orejera del gorro al viento" width="1024" height="1024" loading="lazy"></span>
+        <span class="tx"><h3>Sherpa Side</h3><small>PNG · de perfil, orejera al viento</small><span class="kd-cta">Descargar <svg class="ic"><use href="#i-baja"/></svg></span></span>
+      </a>
+    </div>
+    <p class="nota rv">Todo vive en Google Drive: la vista previa abre acá mismo y los botones te llevan al archivo para bajarlo.</p>
+  </div>
+</section>
+
+<!-- ───────── EL PERSONAJE ───────── -->
+<section class="sec" id="personaje">
+  <div class="wrap">
+    <h2 class="cap" data-paso="120"><span class="g">Así está</span> <mark>hecho.</mark></h2>
+    <p class="lead rv">Un explorador de bolsillo: TV turquesa, borrego crudo y mochila mostaza.</p>
+    <div class="pasos">
+      <article class="paso rv">
+        <span class="opi" aria-hidden="true"><svg class="ic"><use href="#i-tv"/></svg></span>
+        <h3>Cabeza de TV</h3>
+        <p>Turquesa, con pantalla amarilla y seis expresiones: feliz, emocionado, neutro, enojado, sorprendido y triste.</p>
+      </article>
+      <article class="paso rv">
+        <span class="opi" aria-hidden="true"><svg class="ic"><use href="#i-gorro"/></svg></span>
+        <h3>Gorro de aviador</h3>
+        <p>Borrego crudo con orejeras y auriculares. Nunca se lo saca, ni para dormir.</p>
+      </article>
+      <article class="paso rv">
+        <span class="opi" aria-hidden="true"><svg class="ic"><use href="#i-campera"/></svg></span>
+        <h3>Campera inflable</h3>
+        <p>Cian, con cierre magenta y el rayo de Morfeo en el pecho.</p>
+      </article>
+      <article class="paso rv">
+        <span class="opi" aria-hidden="true"><svg class="ic"><use href="#i-mochila"/></svg></span>
+        <h3>Mochila mostaza</h3>
+        <p>Para todo terreno: trae de todo, aunque casi nunca la abre.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── REFERENCIAS ───────── -->
+<section class="sec" id="referencias">
+  <div class="wrap">
+    <h2 class="cap" data-paso="120"><span class="g">Así aparece</span> <mark>en acción.</mark></h2>
+    <p class="lead rv">Cuatro escenas para usar de referencia: color, luz y actitud del personaje.</p>
+    <div class="refs">
+      <a class="ref rv lb" href="https://drive.google.com/file/d/1TRuymRZo-TZivQ08RmWwj2yrDysm88V0/view?usp=drive_link" target="_blank" rel="noopener">
+        <span class="im"><span class="esq" aria-hidden="true"><i></i><i></i><i></i><i></i></span><img src="assets/img/thumb-paul-desconecta.png" alt="Paul desconecta el cable de Sherpa, que mira la cámara con carita triste" width="1200" height="868" loading="lazy"></span>
+        <span class="tx"><h3>Paul desconectando a Sherpa</h3><p>La despedida de la corriente, con carita triste incluida.</p><span class="mini">Ver archivo <svg class="ic"><use href="#i-ampliar"/></svg></span></span>
+      </a>
+      <a class="ref rv lb" href="https://drive.google.com/file/d/1xoMabm6jH9E-DCFOe4jVT4CY0RakrmEs/view?usp=drive_link" target="_blank" rel="noopener">
+        <span class="im"><span class="esq" aria-hidden="true"><i></i><i></i><i></i><i></i></span><img src="assets/img/thumb-pixelart-cowboy.webp" alt="Sherpa en pixel art de cowboy, con sombrero, pañuelo y lazo entre cactus" width="1200" height="600" loading="lazy"></span>
+        <span class="tx"><h3>Sherpa pixel art cowboy</h3><p>Versión 8 bits, con sombrero y lazo.</p><span class="mini">Ver archivo <svg class="ic"><use href="#i-ampliar"/></svg></span></span>
+      </a>
+      <a class="ref rv lb" href="https://drive.google.com/file/d/1BfVz2r5yGoiATLzkKUvL-Gbuvfpyh6EF/view?usp=drive_link" target="_blank" rel="noopener">
+        <span class="im"><span class="esq" aria-hidden="true"><i></i><i></i><i></i><i></i></span><img src="assets/img/thumb-stream.png" alt="Sherpa en un living cálido de noche, con la pantalla encendida como en un stream" width="1200" height="670" loading="lazy"></span>
+        <span class="tx"><h3>Sherpa en stream</h3><p>En vivo desde el living, con luces cálidas.</p><span class="mini">Ver archivo <svg class="ic"><use href="#i-ampliar"/></svg></span></span>
+      </a>
+      <a class="ref rv lb" href="https://drive.google.com/file/d/1s_P0OZf_7qYwmAh9oCmMRAYBm1pIx5RR/view?usp=drive_link" target="_blank" rel="noopener">
+        <span class="im"><span class="esq" aria-hidden="true"><i></i><i></i><i></i><i></i></span><img class="arriba" src="assets/img/thumb-wtf.png" alt="Sherpa parado en la calle, saludando con la mano levantada" width="1024" height="1536" loading="lazy"></span>
+        <span class="tx"><h3>Sherpa en WTF</h3><p>Por la calle, saludando a todo el mundo.</p><span class="mini">Ver archivo <svg class="ic"><use href="#i-ampliar"/></svg></span></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── VIDEOS ───────── -->
+<section class="sec" id="videos">
+  <div class="wrap">
+    <h2 class="cap" data-paso="120"><span class="g">Sherpa</span> <mark>en movimiento.</mark></h2>
+    <p class="lead rv">Dos videos para ver al personaje en acción: la invitación y el gol.</p>
+    <div class="vids">
+      <a class="tel rv lb" data-tipo="video" data-ar="9/16" href="https://drive.google.com/file/d/1SLHMawm62Si-S6emRk5aVGSNvhQxkOTq/view?usp=drive_link" target="_blank" rel="noopener">
+        <span class="scr"><img src="assets/img/thumb-video-reunion.jpg" alt="Sherpa en la calle invitando a la reunión presencial de Morfeo" width="720" height="1280" loading="lazy"><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M8.5 5.5v13l11-6.5z" fill="currentColor"/></svg></span></span>
+        <span class="cap-t">Sherpa invita a la reunión presencial de Morfeo</span>
+      </a>
+      <a class="vid-w rv lb" data-tipo="video" href="https://drive.google.com/file/d/1eXz3st9n4PV9qAweEMmDvpqRtinya2z7/view?usp=drive_link" target="_blank" rel="noopener">
+        <span class="scr"><img src="assets/img/thumb-video-gol.jpg" alt="Sherpa con la camiseta de Argentina en un estadio, con el marcador ENG 1 · 1 ARG" width="1200" height="675" loading="lazy"><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M8.5 5.5v13l11-6.5z" fill="currentColor"/></svg></span></span>
+        <span class="cap-t">Sherpa le hace un gol a Inglaterra<small>Mundial 2026 · ENG 1 · 1 ARG</small></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="fila">
+      <a class="logo" href="#top" aria-label="Sherpa, Morfeo Labs, inicio">
+        <svg class="gl" viewBox="0 0 28 24" aria-hidden="true">
+          <path d="M3 9.2C3 5.4 7.9 2.6 14 2.6S25 5.4 25 9.2z" fill="#e6d3ae"/>
+          <rect x="3" y="8" width="22" height="14" rx="4.2" fill="#1fa8c9"/>
+          <rect x="6.2" y="11" width="15.6" height="8" rx="2.6" fill="#ffd60a"/>
+          <circle cx="10.6" cy="14.1" r="1.25" fill="#12161c"/>
+          <circle cx="17.4" cy="14.1" r="1.25" fill="#12161c"/>
+          <path d="M10.8 16.6c1.9 2 4.5 2 6.4 0" stroke="#12161c" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        </svg>
+        <b>Sherpa</b><span>Morfeo Labs</span>
+      </a>
+      <nav>
+        <a href="#kit">Kit</a>
+        <a href="#personaje">Personaje</a>
+        <a href="#referencias">Referencias</a>
+        <a href="#videos">Videos</a>
+        <a href="https://www.morfeolabs.com/" target="_blank" rel="noopener">morfeolabs.com</a>
+      </nav>
+    </div>
+    <small>© <span id="anio">2026</span> Sherpa · Morfeo Labs. Estilo, tipografía y cielo estrellado: morfeolabs.com.</small>
+  </div>
+  <span class="gigante" aria-hidden="true">SHERPA</span>
+</footer>
+
+<a class="wa-fab" href="https://wa.me/5491140318493?text=Hola%20Paul%2C%20vengo%20de%20la%20p%C3%A1gina%20de%20Sherpa" target="_blank" rel="noopener" aria-label="Escribile a Paul por WhatsApp"><svg class="ic"><use href="#i-charla"/></svg></a>
+
+<!-- ───────── VISTA PREVIA: el archivo en la web, antes de Drive ───────── -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Vista previa" hidden>
+  <div class="lb-fondo" data-lb-cerrar></div>
+  <div class="lb-caja">
+    <button class="lb-x" data-lb-cerrar aria-label="Cerrar"><svg class="ic"><use href="#i-x"/></svg></button>
+    <div class="lb-medio" id="lb-medio"></div>
+    <div class="lb-pie">
+      <div class="lb-tx">
+        <h3 id="lb-titulo"></h3>
+        <small id="lb-meta" hidden></small>
+      </div>
+      <div class="lb-links">
+        <a class="btn btn-g" id="lb-drive" href="#" target="_blank" rel="noopener">Abrir en Drive <svg class="ic"><use href="#i-flecha"/></svg></a>
+        <a class="btn btn-p" id="lb-baja" href="#" target="_blank" rel="noopener">Descargar <svg class="ic"><use href="#i-baja"/></svg></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="assets/noche.js" defer></script>
+<script src="assets/app.js" defer></script>
+</body>
+</html>
