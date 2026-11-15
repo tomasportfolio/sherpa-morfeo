@@ -1,6 +1,6 @@
 /* El elenco: los robotitos de las IA, Eco y Sherpa saludan desde su planeta.
    Copiado de morfeolabs.com (motor: noche.js de Paul de Lavallaz).
-   Único cambio propio de esta página: Sherpa saluda al 200% del tamaño de los demás. */
+   Único cambio propio de esta página: Sherpa saluda al 400% del tamaño de los demás. */
 (function(){
 "use strict";
 var M = window.MORFEO || {}, REDUCED = !!M.REDUCED;
@@ -37,14 +37,17 @@ M.enPantalla(cv, function(ts){
   var apoyo = planeta(g, w, h, 0.56, "12,22,48", "26,54,116");
   var movil = w < 760, n = M.ORDEN.length;
   var paso = movil ? Math.min(w * 0.098, 42) : 84;
-  var u = movil ? Math.min(h * 0.24, 58) : h * 0.27; /* la unidad: el tamaño de un robotito */
+  var lado = Math.min(paso * (n - 1) / 2 + (movil ? w * 0.115 : 170), w * 0.44);
+  var u = Math.max(Math.min(movil ? Math.min(h * 0.24, 58) : h * 0.27, (apoyo(lado).y - 8) / 4), 16); /* la unidad: el robotito */
+  lado = Math.min(lado, w / 2 - u * 4 * 0.74 / 2 - 4); /* que Sherpa (4u de alto, ~0.74 de ancho) tampoco se vaya por la derecha */
+  var pies = apoyo(lado);
+  u = Math.max(Math.min(movil ? Math.min(h * 0.24, 58) : h * 0.27, (pies.y - 8) / 4), 16);
   for (var i = 0; i < n; i++){
     var p = apoyo((i - (n - 1) / 2) * paso), ia = M.IA[M.ORDEN[i]];
     var sal = REDUCED ? (i % 2 ? 0.8 : 0) : Math.max(0, Math.sin(ts * 1.4 - i * 0.85));
     M.agente(g, p.x, p.y + 1, u, {rgb: ia.rgb, dx: i < n / 2 ? 1 : -1, brazo: sal * 0.92, parpadeo: ((ts * 0.6 + i * 1.7) % 4.2) < 0.14});
   }
-  var lado = Math.min(paso * (n - 1) / 2 + (movil ? w * 0.115 : 170), w * 0.44);
   parado(g, img.eco, apoyo(-lado), u);       /* Eco, del tamaño de los robotitos */
-  parado(g, img.sherpa, apoyo(lado), u * 2); /* Sherpa, al 200% de los demás */
+  parado(g, img.sherpa, pies, u * 4);        /* Sherpa, al 400% de los demás */
 }, "80px 0px");
 })();

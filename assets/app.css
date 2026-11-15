@@ -82,8 +82,8 @@ h2{font-size:clamp(31px,4.6vw,58px)}
 .logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:18px;letter-spacing:-.02em;line-height:1}
 .logo .gl{height:24px;width:auto;flex:none}
 .logo b{font-weight:800}
-.logo span{color:#aeb5c0;transform:translateY(.5px)}
-.logo .mlogo{height:.84em;width:auto;aspect-ratio:2197.94/375.75;vertical-align:-.12em}
+.logo span{color:#aeb5c0;white-space:nowrap;transform:translateY(.5px)}
+.logo .mlogo{display:inline-block;height:.84em;width:auto;aspect-ratio:2197.94/375.75;vertical-align:-.12em}
 .nav ul{display:none;list-style:none;gap:26px;margin-left:auto;font-size:14.5px;font-weight:700;color:#d5dbe5}
 .nav ul a:hover{color:#fff}
 .nav .btn{margin-left:auto}
