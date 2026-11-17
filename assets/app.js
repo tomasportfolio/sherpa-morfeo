@@ -29,8 +29,9 @@ var anio = document.getElementById("anio");
 if (anio) anio.textContent = new Date().getFullYear();
 
 /* ───────── la vista previa ───────── */
-/* Cada tarjeta sigue siendo un <a> a Drive: sin JS abre directo; con JS se ve el archivo acá mismo,
-   con «Abrir en Drive» y «Descargar» debajo. Los videos van en el reproductor embebido de Drive. */
+/* Cada tarjeta sigue siendo un <a>: sin JS abre directo; con JS se ve el archivo acá mismo,
+   con «Abrir en …» y «Descargar» debajo. Los videos van en el reproductor embebido de Drive,
+   o en un reproductor propio si la tarjeta declara data-media (p. ej. LYFERA). */
 var lb = document.getElementById("lightbox");
 if (lb){
   var medio = document.getElementById("lb-medio");
@@ -45,8 +46,19 @@ if (lb){
     var href = card.getAttribute("href") || "#";
     var id = (href.match(/\/file\/d\/([^\/]+)/) || [])[1];
     var tipo = card.dataset.tipo || "img";
+    var media = card.dataset.media || ""; /* media directa (p. ej. LYFERA): la preview no pasa por Drive */
     medio.innerHTML = "";
-    if (tipo === "video" && id){
+    if (media && tipo === "video"){
+      /* el video directo, en un reproductor propio */
+      var vid = document.createElement("video");
+      vid.src = media; vid.controls = true; vid.playsInline = true; vid.preload = "auto";
+      vid.title = "Vista previa del video";
+      medio.appendChild(vid);
+      vid.play().catch(function(){}); /* si el navegador no lo permite, quedan los controles */
+      var arv = (card.dataset.ar || "16/9").split("/");
+      lb.style.setProperty("--ar", arv[0] + "/" + arv[1]);
+      lb.style.setProperty("--arn", (parseFloat(arv[0]) / parseFloat(arv[1])).toFixed(4));
+    } else if (tipo === "video" && id){
       /* el reproductor de Drive: el video se ve y se escucha sin salir de la página */
       var marco = document.createElement("iframe");
       marco.src = "https://drive.google.com/file/d/" + id + "/preview";
@@ -62,15 +74,19 @@ if (lb){
     } else {
       var img = card.querySelector("img");
       var grande = document.createElement("img");
-      if (img){ grande.src = img.getAttribute("src") || ""; grande.alt = img.alt || ""; grande.decoding = "async"; }
+      grande.decoding = "async";
+      grande.src = media || (img ? img.getAttribute("src") || "" : "");
+      if (img) grande.alt = img.alt || "";
       medio.appendChild(grande);
     }
     var t = card.querySelector("h3") || card.querySelector(".cap-t");
     tTitulo.textContent = t ? t.textContent : "Vista previa";
     var m = card.querySelector(".chip") || card.querySelector("small");
     if (m){ tMeta.textContent = m.textContent; tMeta.hidden = false; } else { tMeta.hidden = true; }
+    var origen = card.dataset.origen || "Drive";
+    btnDrive.childNodes[0].nodeValue = "Abrir en " + origen + " ";
     btnDrive.href = href;
-    btnBaja.href = id ? "https://drive.google.com/uc?export=download&id=" + id : href;
+    btnBaja.href = card.dataset.baja || (id ? "https://drive.google.com/uc?export=download&id=" + id : href);
     lb.hidden = false;
     document.documentElement.classList.add("lb-abierto");
     lb.querySelector(".lb-x").focus();

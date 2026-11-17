@@ -50,6 +50,7 @@ h2{font-size:clamp(31px,4.6vw,58px)}
 .cap mark.sel::before,.cap mark.sel::after{transform:scale(1)}
 .lead{font-size:clamp(17px,1.5vw,20px);color:var(--texto);text-align:center;max-width:31em;margin:14px auto 0;text-wrap:pretty}
 .lead b{color:#fff;font-weight:700}
+.lead a{color:#fff;font-weight:700;text-decoration:underline;text-decoration-color:var(--sel);text-decoration-thickness:2px;text-underline-offset:3px}
 
 /* lo que entra al llegar */
 .js .rv{opacity:0;transform:translateY(18px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
@@ -193,7 +194,7 @@ h2{font-size:clamp(31px,4.6vw,58px)}
 .lb-x:hover{color:#fff;box-shadow:inset 0 0 0 1.5px var(--borde2)}
 .lb-medio{position:relative;background:#05070d}
 .lb-medio img{display:block;width:100%;max-height:64dvh;object-fit:contain;margin:0 auto}
-.lb-medio iframe{display:block;width:min(100%,calc(64dvh * var(--arn,1.7778)));aspect-ratio:var(--ar,16/9);margin:0 auto;border:0;background:#05070d}
+.lb-medio iframe,.lb-medio video{display:block;width:min(100%,calc(64dvh * var(--arn,1.7778)));aspect-ratio:var(--ar,16/9);margin:0 auto;border:0;background:#05070d}
 .lb-pie{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 18px;padding:16px 20px 20px;box-shadow:0 -1px 0 var(--borde)}
 .lb-tx{min-width:0}
 .lb-tx h3{font-size:21px}
@@ -208,6 +209,10 @@ html.lb-abierto body{overflow:hidden}
   .lb-links .btn{flex:1}
   .lb-tx h3{font-size:19px}
 }
+
+/* ───────── Sherpa en LYFERA: Julian Vance ───────── */
+#lyfera .ref .im{aspect-ratio:5/6}
+.lyf-vid{margin-top:26px;display:grid;justify-items:center}
 
 /* ───────── el elenco: los robots de las IA, Eco y Sherpa en su planeta (morfeolabs.com) ───────── */
 .cierre{padding:70px 0 0;text-align:center}
